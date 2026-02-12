@@ -25,30 +25,6 @@ body {
   padding: 16px;
 
 
-
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyB6eW0H0oRGnEXmfz7h_xsYgas6uv1RWpc",
-    authDomain: "addiction-254f7.firebaseapp.com",
-    projectId: "addiction-254f7",
-    storageBucket: "addiction-254f7.firebasestorage.app",
-    messagingSenderId: "594193773683",
-    appId: "1:594193773683:web:8293fcf42ea6dc8291a606",
-    measurementId: "G-SQX9XKHXHG"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
 }
 
 .container {
@@ -209,4 +185,4 @@ toggle.addEventListener("click", () => {
 
 
 
-<!--For Tomorrow! (figure out why php aint opening up, convert files to php to connect to database, Connect to database)
+<!--For Monday! (Fuck firebase, buy hostinger premium and use that for hosting (maybe db) this will make php files work!)
