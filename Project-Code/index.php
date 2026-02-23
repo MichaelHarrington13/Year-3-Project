@@ -1,3 +1,35 @@
+
+
+<?php
+include "db.inc.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+$sql = "SELECT * FROM users WHERE email=?";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "s", $email);
+mysqli_stmt_execute($stmt);
+
+$result = mysqli_stmt_get_result($stmt);
+$user = mysqli_fetch_assoc($result);
+
+if ($user && password_verify($password, $user['password'])) {
+
+header("Location: HomePage.php");
+exit();
+
+} else {
+echo "Invalid login.";
+}
+
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,32 +169,31 @@ button:hover {
 <div class="container">
   <h2>Login</h2>
 
-  <form>
-    <div class="form-group">
-      <label>Email address</label>
-      <div class="input-box">
-        <input type="email" placeholder="email@address.com" />
-        <span class="icon">✉️</span>
-      </div>
-    </div>
+<form method="POST">
 
-    <div class="form-group">
-      <label>Password</label>
-      <div class="input-box">
-        <input type="password" placeholder="••••••••" id="password" />
-        <span class="icon" id="toggle">👁</span>
-      </div>
-    </div>
+<div class="form-group">
+<label>Email address</label>
+<div class="input-box">
+<input type="email" name="email" placeholder="email@address.com" required>
+<span class="icon">✉️</span>
+</div>
+</div>
 
-   <a href="HomePage.html">
-  <button type="button">Login</button>
-</a>
+<div class="form-group">
+<label>Password</label>
+<div class="input-box">
+<input type="password" name="password" placeholder="••••••••" id="password" required>
+<span class="icon" id="toggle">👁</span>
+</div>
+</div>
 
-  </form>
+<button type="submit">Login</button>
+</form>
+
 
   <p class="login-link">
     Dont have an account?
-    <a href="SignUp.html">Create Account</a>
+    <a href="signup.php">Create Account</a>
   </p>
 </div>
 

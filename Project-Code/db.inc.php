@@ -1,14 +1,14 @@
-
 <?php
+
 $host = "localhost";
-$user = "survey_admin";
-$pass = "Yt6PSsrm8";
-$db   = "survey_users";
+$user = "u253435553_C00296932";
+$password = "Yt6PSsrm8";
+$database = "u253435553_DrugAddiction";
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+$conn = mysqli_connect($host, $user, $password, $database);
 
-if ($conn) {
-    die("Connection Failed: " . mysqli_connect_error());
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 ?>

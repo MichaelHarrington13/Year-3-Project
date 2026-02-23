@@ -66,8 +66,6 @@ padding:25px;
 line-height:1.6;
 }
 
-/* GRAPH SECTION */
-
 .graph-section{
 display:flex;
 gap:30px;
@@ -91,7 +89,6 @@ border-radius:10px;
 margin-bottom:10px;
 }
 
-/* BUTTON */
 
 .button-area{
 display:flex;
@@ -112,7 +109,6 @@ font-size:16px;
 background:#222;
 }
 
-/* MOBILE */
 
 @media (max-width:800px){
 

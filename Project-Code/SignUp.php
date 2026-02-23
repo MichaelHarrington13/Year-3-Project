@@ -1,4 +1,26 @@
+<?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include "db.inc.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$email = $_POST["email"];
+$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+$SQL = "INSERT INTO users (email, password) VALUES (?, ?)";
+
+$stmt = mysqli_prepare($conn, $SQL);
+mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+mysqli_stmt_execute($stmt);
+
+header("Location: index.php");
+exit();
+}
+
+?>
 
 
 <!DOCTYPE html>
@@ -142,34 +164,32 @@ button:hover {
 <div class="container">
   <h2>Create Your Account</h2>
 
-  <form action="signup.php" method="POST">
+<form method="POST">
 
-  <form>
-    <div class="form-group">
-      <label>Email address</label>
-      <div class="input-box">
-        <input type="email" placeholder="email@address.com" />
-        <span class="icon">✉️</span>
-      </div>
-    </div>
+<div class="form-group">
+<label>Email address</label>
+<div class="input-box">
+<input type="email" name="email" placeholder="email@address.com" required>
+<span class="icon">✉️</span>
+</div>
+</div>
 
-    <div class="form-group">
-      <label>Password</label>
-      <div class="input-box">
-        <input type="password" placeholder="••••••••" id="password" />
-        <span class="icon" id="toggle">👁</span>
-      </div>
-    </div>
+<div class="form-group">
+<label>Password</label>
+<div class="input-box">
+<input type="password" name="password" placeholder="••••••••" id="password" required>
+<span class="icon" id="toggle">👁</span>
+</div>
+</div>
 
-  <a href="Login.html">
-  <button type="button">Create Account</button>
-</a>
+<button type="submit">Create Account</button>
 
-  </form>
+</form>
+
 
   <p class="login-link">
     Already have an account?
-    <a href="Login.html">Log in here</a>
+    <a href="index.php">Log in here</a>
   </p>
 </div>
 
