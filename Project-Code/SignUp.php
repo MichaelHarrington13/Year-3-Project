@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,5 +187,3 @@ toggle.addEventListener("click", () => {
 </html>
 
 
-
-<!--For Monday! (Fuck firebase, buy hostinger premium and use that for hosting (maybe db) this will make php files work!)
