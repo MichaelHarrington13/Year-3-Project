@@ -139,8 +139,8 @@ padding:30px 15px;
 <body>
 
 <div class="header">
-<div>Logo</div>
-<div>Substance Use Survey</div> <!--make this a link -->
+<a href="HomePage.php">Logo</a>
+<div>Substance Use Survey</div>
 <div>Contact Number </div>
 </div>
 
