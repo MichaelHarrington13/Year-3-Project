@@ -15,7 +15,7 @@ font-family:Arial;
 }
 
 body{
-background:#f3f3f3;
+background:	#f3f3f3;
 }
 
 
@@ -35,13 +35,15 @@ overflow:hidden;
 .header{
 display:flex;
 border-bottom:1px solid #e5e5e5;
+background: #0F52BA;
+color: white;
 }
 
 .header div{
 flex:1;
 padding:20px;
 text-align:center;
-border-right:1px solid #e5e5e5;
+border-right:1px solid 	#e5e5e5;
 font-weight:500;
 }
 
@@ -97,7 +99,7 @@ padding:30px 40px 50px;
 }
 
 .start-btn{
-background:#0018f9;
+background:	#0F52BA;
 color:white;
 padding:16px 32px;
 border-radius:12px;
@@ -154,7 +156,7 @@ padding:25px;
 <div class="about-box">
 
 <p>
-Example Text Example Text Example Text Example Text Example Text
+Our self-assessments surveys are based on scientifically validated screening tools such as the drug abuse screening test (DAST-10) and the Alcohol, Smoking and Substance InvolvementScreening Test (ASSIST). These surveys are designed to give you an idea on the current status of your addiction but should not be classed as a diagnosis.
 </p>
 
 <br>
@@ -178,7 +180,7 @@ Example non-addict
 </div>
 
 <div class="button-area">
-<a href="Survey.php" class="start-btn">Start Survey</a>
+<a href="Survey.php" class="start-btn">Start DAST-10 Survey</a>
 </div>
 
 </div>
