@@ -1,32 +1,30 @@
-
-
 <?php
+session_start();
 include "db.inc.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-$sql = "SELECT * FROM users WHERE email=?";
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "s", $email);
-mysqli_stmt_execute($stmt);
+    $sql = "SELECT * FROM users WHERE email=?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
 
-$result = mysqli_stmt_get_result($stmt);
-$user = mysqli_fetch_assoc($result);
+    $result = mysqli_stmt_get_result($stmt);
+    $user = mysqli_fetch_assoc($result);
 
-if ($user && password_verify($password, $user['password'])) {
+    if ($user && password_verify($password, $user["password"])) {
 
-header("Location: HomePage.php");
-exit();
+        $_SESSION["user_id"] = $user["id"];   // ✅ Store user ID
 
-} else {
-echo "Invalid login.";
-}
+        header("Location: HomePage.php");
+        exit();
 
-$_SESSION["user_id"] = $user["id"];
-
+    } else {
+        echo "Invalid login.";
+    }
 }
 ?>
 
@@ -153,6 +151,23 @@ button:hover {
   font-weight: 500;
 }
 
+#errorBox{
+position:fixed;
+top:-60px;
+left:50%;
+transform:translateX(-50%);
+background:#ff4d4d;
+color:white;
+padding:15px 30px;
+border-radius:8px;
+font-weight:bold;
+transition:0.5s;
+z-index:1000;
+}
+#errorBox.show{
+top:20px;
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 400px;
@@ -197,6 +212,9 @@ button:hover {
     Dont have an account?
     <a href="signup.php">Create Account</a>
   </p>
+  
+  <div id="errorBox">Invalid email or password</div>
+
 </div>
 
 <script>
@@ -206,7 +224,8 @@ const password = document.getElementById("password");
 toggle.addEventListener("click", () => {
   password.type =
     password.type === "password" ? "text" : "password";
-});
+    
+
 </script>
 
 </body>
