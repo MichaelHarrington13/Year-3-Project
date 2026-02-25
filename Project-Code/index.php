@@ -25,6 +25,8 @@ exit();
 echo "Invalid login.";
 }
 
+$_SESSION["user_id"] = $user["id"];
+
 }
 ?>
 
