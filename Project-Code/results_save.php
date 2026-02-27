@@ -18,7 +18,7 @@ if (!isset($data["answers"])) {
 
 $answers = $data["answers"];
 
-/* Ensure we got all 10 answers */
+/* Ensure for all 10 answers */
 if (count($answers) !== 10) {
     http_response_code(400);
     exit("Expected 10 answers");
@@ -29,7 +29,7 @@ $score = array_sum($answers);
 $total = count($answers);
 $user_id = $_SESSION["user_id"];
 
-/* Save answers in session (optional) */
+/* Save answers in session */
 $_SESSION["answers"] = $answers;
 
 /* Insert into database */

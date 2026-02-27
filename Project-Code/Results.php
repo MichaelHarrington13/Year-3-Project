@@ -13,7 +13,6 @@ if (count($answers) !== 10) {
 
 $score = array_sum($answers);
 
-/* DAST-10 interpretation */
 if ($score == 0) {
   $level = "No problems reported";
   $action = "None at this time";
