@@ -146,6 +146,19 @@ button:hover {
   font-weight: 500;
 }
 
+.DoctorSignUp-link {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+}
+
+.DoctorSignUp-link a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 400px;
@@ -185,6 +198,11 @@ button:hover {
 <button type="submit">Create Account</button>
 
 </form>
+
+    <p class="DoctorSignUp-link">
+    Signing up a a Doctor?
+    <a href="DoctorSignup.php">Create Doctor Account</a>
+  </p>
 
 
   <p class="login-link">

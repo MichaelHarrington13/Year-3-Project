@@ -6,7 +6,7 @@ if (!isset($_SESSION["user_id"])) {
   exit();
 }
 
-$answers = $_SESSION["answers"] ?? [];
+$answers = $_SESSION["answers"] ?? [];  /* makes sure all 10 question must be answered to conti */
 if (count($answers) !== 10) {
   die("No complete survey found. Please take the survey again.");
 }

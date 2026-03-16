@@ -76,7 +76,7 @@ justify-content:center;
 }
 
 .graph-card{
-flex:1;
+flex:1;  /* grows to fit the space provided */
 background:#fafafa;
 border-radius:14px;
 border:1px solid #e5e5e5;
@@ -113,6 +113,7 @@ background:#222;
 
 
 @media (max-width:800px){
+/* Fits the screen for mobile */
 
 .page{
 border-radius:0;
