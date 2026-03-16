@@ -1,26 +1,29 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 include "db.inc.php";
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$email = $_POST["email"];
-$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+$email = $_POST['email'];
+$password = $_POST['password'];
+$reg = $_POST['reg_number'];
 
-$SQL = "INSERT INTO users (email, password) VALUES (?, ?)";
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-$stmt = mysqli_prepare($conn, $SQL);
-mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+$sql = "INSERT INTO doctors (email, password, reg_number) VALUES (?, ?, ?)";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+mysqli_stmt_bind_param($stmt, "sss", $email, $hashed_password, $reg);
+
 mysqli_stmt_execute($stmt);
 
-header("Location: index.php");
-exit();
-}
+echo "Doctor account created successfully";
 
+}
 ?>
+
+<!-- php to be transferred to hostinger cause it keeps deleting itself rn -->
 
 
 <!DOCTYPE html>
@@ -163,27 +166,34 @@ button:hover {
 <body>
 
 <div class="container">
-  <h2>Create Your Doctor Account</h2>
+ <h2>Create Your Doctor Account</h2>
 
-<form method="POST">
+<form method="POST" action="doctor_signup.php">
 
-<div class="form-group">
-<label>Email address</label>
-<div class="input-box">
-<input type="email" name="email" placeholder="email@address.com" required>
-<span class="icon">✉️</span>
-</div>
-</div>
+    <div class="form-group">
+        <label>Email address</label>
+        <div class="input-box">
+            <input type="email" name="email" placeholder="email@address.com" required>
+            <span class="icon">✉</span>
+        </div>
+    </div>
 
-<div class="form-group">
-<label>Password</label>
-<div class="input-box">
-<input type="password" name="password" placeholder="••••••••" id="password" required>
-<span class="icon" id="toggle">👁</span>
-</div>
-</div>
+    <div class="form-group">
+        <label>Password</label>
+        <div class="input-box">
+            <input type="password" name="password" placeholder="••••••••" id="password" required>
+            <span class="icon" id="toggle">👁</span>
+        </div>
+    </div>
 
-<button type="submit">Create Account</button>
+    <div class="form-group">
+        <label>Doctor Registration Number</label>
+        <div class="input-box">
+            <input type="text" name="reg_number" placeholder="Enter registration number" required>
+        </div>
+    </div>
+
+    <button type="submit">Create Account</button>
 
 </form>
 
